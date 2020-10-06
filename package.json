@@ -1,0 +1,24 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aishacodes/node-exercises.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "learning"
+  ],
+  "author": "Abdulfatah Aishat <aishat@codevillage.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aishacodes/node-exercises/issues"
+  },
+  "homepage": "https://github.com/aishacodes/node-exercises#readme"
+}
