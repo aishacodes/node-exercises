@@ -1,5 +1,7 @@
 // console.log('Hello world')
-const http = require('http');
+const express = require('express')
+ 
+const app = express()
 
 const notes = [
   {
@@ -22,11 +24,11 @@ const notes = [
   }
 ]
 
-const app = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' })
-  res.end(JSON.stringify(notes))
+app.get('/', (req, res) => {
+  res.send('Hello world!')
 })
 
-const PORT = 3001
-app.listen(PORT)
+const PORT = 3030
+app.listen(PORT,() => {
 console.log('App is running on port', PORT)
+})
