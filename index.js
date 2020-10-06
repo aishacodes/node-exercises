@@ -1,9 +1,10 @@
 // console.log('Hello world')
 const express = require('express')
+const { request, response } = require('express')
  
 const app = express()
 
-const notes = [
+let notes = [
   {
     id: 1,
     content: "HTML is easy",
@@ -24,8 +25,25 @@ const notes = [
   }
 ]
 
-app.get('/', (req, res) => {
-  res.send('Hello world!')
+app.get('/api/notes', (req, res) => {
+  res.json(notes)
+})
+
+app.delete('/api/notes/:id', (req, res) => {
+  const {id} = request.params
+  notes.filter(note=> note.id ===id)
+
+  response.status(204).end()
+})
+
+app.get('/api/notes/:id', (request, response) => 
+{
+  const {id} = request.params
+  const note = notes.find(note => note.id == parseInt(id) )
+
+  if(!note) return `${id} not found`
+
+  response.json(note)
 })
 
 const PORT = 3030
