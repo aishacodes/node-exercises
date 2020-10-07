@@ -32,6 +32,10 @@ const contacts = [
   }
 ]
 
+app.get('/' , (req, res) => {
+  res.send('Hello World')
+})
+
 app.get('/api/contacts/', (req, res) => {
   res.json(contacts)
 })
