@@ -25,7 +25,7 @@ const contacts = [
   { 
     "name": "Mary slessor", 
     "number": "39-23-6423122",
-    "id": 4
+    "id": 5
   }
 ]
 
@@ -38,6 +38,18 @@ app.get('/info/', (req, res) => {
   const created = new Date(Date.now())
   res.send(`Phonebook has info for ${lengthh} people <br><br><br> ${created}` )
 })
+
+app.get('/api/contacts/:id', (req, res) => {
+  const {id} =  req.params
+
+  const contact = contacts.find(contact => contact.id == id)
+
+  if(!contact) return res.status(404).send(`contact with ID of ${id} not found`)
+
+  res.json(contact)
+
+})
+
 
 const PORT = 3001
 app.listen(PORT, () => {
