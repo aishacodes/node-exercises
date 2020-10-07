@@ -21,11 +21,22 @@ const contacts = [
     "name": "Mary Poppendieck", 
     "number": "39-23-6423122",
     "id": 4
+  },
+  { 
+    "name": "Mary slessor", 
+    "number": "39-23-6423122",
+    "id": 4
   }
 ]
 
 app.get('/api/contacts/', (req, res) => {
   res.json(contacts)
+})
+
+app.get('/info/', (req, res) => {
+  const lengthh = contacts.length
+  const created = new Date(Date.now())
+  res.send(`Phonebook has info for ${lengthh} people <br><br><br> ${created}` )
 })
 
 const PORT = 3001
