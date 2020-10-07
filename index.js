@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+require('dotenv').config()
+
+app.disable('x-powered-by')
 
 const contacts = [
   { 
@@ -51,7 +54,7 @@ app.get('/api/contacts/:id', (req, res) => {
 })
 
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log('App is running on port', PORT)
 })
